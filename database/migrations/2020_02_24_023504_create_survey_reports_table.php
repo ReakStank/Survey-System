@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePermissionsTable extends Migration
+class CreateSurveyReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function (Blueprint $table) {
-            // $table->engine = 'InnoDB';
-            $table->bigIncrements('id');
-            $table->string('permission_name'); 
-            $table->string('desctiption');
+        Schema::create('survey_reports', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->unsignedInteger('survey_id');
+            $table->unsignedInteger('question_id');
+            $table->text('request_info');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions');
+        Schema::dropIfExists('survey_reports');
     }
 }

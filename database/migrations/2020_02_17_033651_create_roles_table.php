@@ -13,12 +13,16 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->enum('permission_id',['1','0'])->default('1');
-            $table->string('role_name');
-            $table->string('description');
+        Schema::create('roles', function(Blueprint $table) {
+            // $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->unsignedInteger('permission_id');
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamps();
+        });
+        Schema::table('roles', function(Blueprint $table) {
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
         });
     }
 
@@ -29,6 +33,10 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
+        Schema::table('roles', function(Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['permission_id']);
+        });
         Schema::dropIfExists('roles');
     }
 }
