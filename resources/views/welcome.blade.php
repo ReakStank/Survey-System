@@ -49,7 +49,7 @@
 
             .content {
                 text-align: center;
-                margin-top: -40%;
+                margin-top: -30%;
 
             }
 
@@ -89,7 +89,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content ">
                 <div class="title m-b-md">
                     Welcome to Survey System
                 </div>
