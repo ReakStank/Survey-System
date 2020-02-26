@@ -11,11 +11,17 @@
     <!-- <link scr="/css/home.css"> -->
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 
+<<<<<<< HEAD
     <script href="{{ asset('js/home.js') }}" ></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+=======
+            .content {
+                text-align: center;
+                margin-top: -30%;
+>>>>>>> 53f355ddc26d8580b35e96caeaa3cdfe87000484
 
 <div class="container">
     <div class="row">
@@ -56,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -109,6 +116,13 @@
                             </table>
                         </div>
                     </div>
+=======
+            @endif
+
+            <div class="content ">
+                <div class="title m-b-md">
+                    Welcome to Survey System
+>>>>>>> 53f355ddc26d8580b35e96caeaa3cdfe87000484
                 </div>
             </div>
         </div>
