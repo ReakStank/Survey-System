@@ -49,7 +49,7 @@
 
             .content {
                 text-align: center;
-                margin-top: -40%;
+                margin-top: -30%;
 
             }
 
