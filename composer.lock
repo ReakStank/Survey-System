@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f132d9e90d2eaf8adc624ba0116198a",
+    "content-hash": "99e1a695fe21daef42235655e3aaf543",
     "packages": [
+        {
+            "name": "bgaze/bootstrap-form",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bgaze/bootstrap-form.git",
+                "reference": "dd1ede3a509ca22b1b7fdd31633022f1eb0d5501"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bgaze/bootstrap-form/zipball/dd1ede3a509ca22b1b7fdd31633022f1eb0d5501",
+                "reference": "dd1ede3a509ca22b1b7fdd31633022f1eb0d5501",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.8",
+                "illuminate/support": ">=5.8",
+                "laravelcollective/html": ">=5.8",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bgaze\\BootstrapForm\\BootstrapFormServiceProvider"
+                    ],
+                    "aliases": {
+                        "BF": "Bgaze\\BootstrapForm\\Support\\Facades\\BF"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bgaze\\BootstrapForm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bgaze",
+                    "email": "benjamin@bgaze.fr"
+                }
+            ],
+            "description": "Bootstrap 4 forms builder for Laravel 5.8+",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "laravel"
+            ],
+            "time": "2020-03-01T15:08:22+00:00"
+        },
         {
             "name": "defuse/php-encryption",
             "version": "v2.2.1",
@@ -1181,6 +1235,74 @@
                 "psysh"
             ],
             "time": "2019-08-07T15:10:45+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v6.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "bcc317d21a7e04eebcc81c4109fa84feaab63590"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/bcc317d21a7e04eebcc81c4109fa84feaab63590",
+                "reference": "bcc317d21a7e04eebcc81c4109fa84feaab63590",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^6.0",
+                "illuminate/routing": "^6.0",
+                "illuminate/session": "^6.0",
+                "illuminate/support": "^6.0",
+                "illuminate/view": "^6.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "illuminate/database": "^6.0",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "time": "2019-10-02T00:37:39+00:00"
         },
         {
             "name": "lcobucci/jwt",
