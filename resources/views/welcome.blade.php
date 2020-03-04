@@ -38,7 +38,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-new-window"></span><a href="http://www.jquery2dotnet.com">Create Survey</a>
+                                        <span class="glyphicon glyphicon-new-window"></span><a href="/questions/create" class="btn btn-dark">Create Survey</a>
                                     </td>
                                 </tr>
                                 <tr>

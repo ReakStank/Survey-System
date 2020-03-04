@@ -15,6 +15,9 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('titel');
+            $table->string('purpose');
             $table->enum('type', ['check', 'free'])->default('check');
             $table->timestamps();
         });
