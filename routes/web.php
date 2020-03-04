@@ -22,17 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/auth',function(Request $request){
     $user= User::get();
@@ -54,3 +44,5 @@ Route::get('/api/get_questions',function(Request $request){
 //     $questions = Question::get();
 //     return $questions;
 // });
+
+Route::get('web_role/get','Auth\RegisterController@create');

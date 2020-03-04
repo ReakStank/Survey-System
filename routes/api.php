@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +16,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('role/get','RoleController@index');
+Route::post('/create','Api\AuthController@register');
+Route::post('/login','Api\AuthController@login');
