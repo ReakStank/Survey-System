@@ -20,8 +20,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-Route::get('/questions/create', 'questionsController@create');
+Route::get('/question/create', function () {
+    return view('questions.create');
+});
+// Route::get('/question/create', 'QuestionController@create');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
