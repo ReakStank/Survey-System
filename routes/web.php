@@ -20,14 +20,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/question/create', function () {
-    return view('questions.create');
+Route::get('/surveys/create', function () {
+    return view('surveys.create');
 });
-// Route::get('/question/create', 'QuestionController@create');
-
+Route::post('/insert', 'SurveyController@insert');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
+
+
+
+
+
+////////=========================================================================================
 
 Route::get('/api/auth',function(Request $request){
     $user= User::get();
