@@ -26,13 +26,45 @@ class AuthController extends Controller
     }
     public function login(Request $request){
         $LoginDate = $request ->validate([
-            'email' => ['required', 'email', 'max:255'],
+            'email' => [ 'max:255','email',"required"],
             'password' => ['required', 'min:8'],]);
+        // $uLoginDate = $request ->validate([
+        //     'username' => ['required', 'max:255'],
+        //     'password' => ['required', 'min:8'],]);
+            // dump($LoginDate);
+            // dump($uLoginDate);
+            // exit();
             if (!auth() ->attempt($LoginDate)){
                 return response(['message'=>"Invalid credentials"]);
             }
             $accessToken=auth()->user()->createToken('authToken')->accessToken; 
             return response()->json(['user'=>auth()->user(),'acessToken'=>$accessToken]);
+            
     }
+    public function logout(Request $request)
+    {
+      if (Auth::user()) {
+        $user = Auth::user()->token();
+        $user->revoke();
+
+        return response()->json([
+          'success' => true,
+          'message' => 'Logout successfully'
+      ]);
+      }else {
+        return response()->json([
+          'success' => false,
+          'message' => 'Unable to Logout'
+        ]);
+      }
+     }
+
+    public function username(){
+        $loginType  = request()->input('username');
+        $this->username = filter_var($loginType, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        request()->merge([$this->username=>$loginType]);
+        return property_exists($this, 'username') ? $this->username : 'email';
+    }
+
    
 }

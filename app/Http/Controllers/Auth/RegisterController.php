@@ -46,6 +46,6 @@ public function create(array $data)
             'password' => Hash::make($data['password']),
         ]);
         return response('user' -> $user);
-        exit();
+        // exit();
     }
 }
