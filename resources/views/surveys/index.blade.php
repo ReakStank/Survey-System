@@ -14,9 +14,9 @@ $('#example').DataTable();
 <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Action</th>
+                <th>Names</th>
+                <th>Descriptions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
