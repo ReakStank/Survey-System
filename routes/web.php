@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Http\Request;
+use App\Models\Survey;
 use App\Models\Question;
 use App\User;
 Route::get('/', function () {
@@ -20,15 +21,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/surveys/create', function () {
-    return view('surveys.create');
+Route::get('surveys/update/{id}', function () {
+    return view('surveys/update');
 });
+
 Route::post('/insert', 'SurveyController@insert');
+
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-
+Route::get('surveys/create', 'SurveyController@create');
+Route::get('surveys/index', 'SurveyController@index');
+Route::get('surveys/destroy/{id}', 'SurveyController@destroy');
+Route::get('surveys/update/{id}', 'SurveyController@update');
+Route::get('survey/edit/{id}','SurveyController@edit');
 
 
 
