@@ -21,7 +21,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-new-window"></span><a href="surveys/create">Create Survey</a>
+                                        <span class="glyphicon glyphicon-new-window"></span><a href="form-builder/forms">Create Survey</a>
                                     </td>
                                 </tr>
                                 <tr>

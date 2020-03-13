@@ -1,7 +1,7 @@
-@extends('formbuilder::layout')
+@extends('layout')
 
 @section('content')
-<div class="container">
+<div class="container" style= "background-color:pink;">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -9,13 +9,13 @@
                     <h5 class="card-title">
                         {{ $pageTitle ?? '' }}
 
-                        <a href="{{ route('formbuilder::forms.index') }}" class="btn btn-sm btn-primary float-md-right">
+                        <a href="{{ route('forms.index') }}" class="btn btn-sm btn-primary float-md-right">
                             <i class="fa fa-arrow-left"></i> Back To My Form
                         </a>
                     </h5>
                 </div>
 
-                <form action="{{ route('formbuilder::forms.store') }}" method="POST" id="createFormForm">
+                <form action="{{ route('forms.store') }}" method="POST" id="createFormForm">
                     @csrf 
                     
                     <div class="card-body">
@@ -27,7 +27,7 @@
                                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Enter Form Name">
 
                                     @if ($errors->has('name'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback" role="alert" >
                                             <strong>{{ $errors->first('name') }}</strong>
                                         </span>
                                     @endif
@@ -103,5 +103,5 @@
         window.FormBuilder = window.FormBuilder || {}
         window.FormBuilder.form_roles = @json($form_roles);
     </script>
-    <script src="{{ asset('vendor/formbuilder/js/create-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
+    <script src="{{ asset('js/create-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
 @endpush

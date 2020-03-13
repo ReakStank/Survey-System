@@ -1,4 +1,4 @@
-@extends('formbuilder::layout')
+@extends('layout')
 
 @section('content')
 <div class="container">
@@ -7,21 +7,27 @@
             <div class="card rounded-0">
                 <div class="card-header">
                     <h5 class="card-title">
-                        Viewing Submission #{{ $submission->id }} for form '{{ $submission->form->name }}'
+                        Viewing my submission for form 
+                        <strong>{{ $submission->form->name }}</strong>
                         
-                        <div class="btn-toolbar float-right" role="toolbar">
+                        <div class="btn-toolbar float-md-right" role="toolbar">
                             <div class="btn-group" role="group" aria-label="First group">
-                                <a href="{{ route('formbuilder::forms.submissions.index', $submission->form->id) }}" class="btn btn-primary float-md-right btn-sm" title="Back To Submissions">
+                                <a href="{{ route('my-submissions.index') }}" class="btn btn-primary btn-sm" title="Back To My Submissions">
                                     <i class="fa fa-arrow-left"></i> 
                                 </a>
-                                <form action="{{ route('formbuilder::forms.submissions.destroy', [$submission->form, $submission]) }}" method="POST" id="deleteSubmissionForm_{{ $submission->id }}" class="d-inline-block">
+                                @if($submission->form->allowsEdit())
+                                    <a href="{{ route('my-submissions.edit', $submission) }}" class="btn btn-primary btn-sm" title="Edit this submission">
+                                        <i class="fa fa-pencil"></i> 
+                                    </a>
+                                @endif
+                                {{-- <form action="{{ route('my-submissions.destroy', [$submission->id]) }}" method="POST" id="deleteSubmissionForm_{{ $submission->id }}" class="d-inline-block">
                                     @csrf 
                                     @method('DELETE')
 
                                     <button type="submit" class="btn btn-danger btn-sm rounded-0 confirm-form" data-form="deleteSubmissionForm_{{ $submission->id }}" data-message="Delete submission" title="Delete this submission?">
                                         <i class="fa fa-trash-o"></i> 
                                     </button>
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
                     </h5>
