@@ -16,19 +16,19 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-list-alt"></span><a href="surveys/index">Survey Lists</a>
+                                        <span class="glyphicon glyphicon-list-alt"></span><a href="form-builder/forms/">Survey Lists</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-new-window"></span><a href="surveys/create">Create Survey</a>
+                                        <span class="glyphicon glyphicon-new-window"></span><a href="form-builder/forms/create">Create Survey</a>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-credit-card"></span><a href="http://www.jquery2dotnet.com">Edit Survey</a>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-upload"></span><a href="http://www.jquery2dotnet.com">Generate Survey Link</a>

@@ -1,4 +1,4 @@
-@extends('formbuilder::layout')
+@extends('layout')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
                     <h5 class="card-title">{{ $pageTitle }}</h5>
                 </div>
 
-                <form action="{{ route('formbuilder::form.submit', $form->identifier) }}" method="POST" id="submitForm" enctype="multipart/form-data">
+                <form action="{{ route('form.submit', $form->identifier) }}" method="POST" id="submitForm" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="card-body">
@@ -32,5 +32,5 @@
     <script type="text/javascript">
         window._form_builder_content = {!! json_encode($form->form_builder_json) !!}
     </script>
-    <script src="{{ asset('vendor/formbuilder/js/render-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
+    <script src="{{ asset('js/render-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
 @endpush

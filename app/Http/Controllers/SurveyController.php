@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use DataTables;
+use App\User;
 use Illuminate\Http\Request;
 use App\Models\survey;
 use App\Http\Requests;
@@ -49,4 +50,23 @@ class SurveyController extends Controller
         DB::update('update surveys set name = ?,description=? where id = ?',[$name,$description,$id]);
         return redirect('surveys/index');
         }
+        // public function test(){
+            // $user = User::first();
+
+            // // get the user's forms
+            // $user->forms;
+                    
+            // // get the user's submissions
+            // $user->submissions;
+                    
+            // // or use static methods on the jazmy\FormBuilder\Models\Form class
+            // $user_forms = Form::getForUser($user); // returns a paginated resultset
+            //         dump($user_forms);
+                    
+            // // the jazmy\FormBuilder\Models\Submission class also has a static method for getting the submissions
+            // // that belong to a user
+            // $my_submissions = Submission::getForUser($user); // returns a paginated resultset
+            // dump($my_submissions);
+            // exit();
+        // }
 }

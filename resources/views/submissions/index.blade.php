@@ -1,4 +1,4 @@
-@extends('formbuilder::layout')
+@extends('layout')
 
 @section('content')
 <div class="container-fluid">
@@ -9,7 +9,7 @@
                     <h5 class="card-title">
                         {{ $pageTitle }} ({{ $submissions->count() }})
                         
-                        <a href="{{ route('formbuilder::forms.index') }}" class="btn btn-primary float-md-right btn-sm">
+                        <a href="{{ route('forms.index') }}" class="btn btn-primary float-md-right btn-sm">
                             <i class="fa fa-arrow-left"></i> Back To Forms
                         </a>
                     </h5>
@@ -23,7 +23,8 @@
                                     <th class="five">#</th>
                                     <th class="fifteen">User Name</th>
                                     @foreach($form_headers as $header)
-                                        <th>{{ $header['label'] ?? title_case($header['name']) }}</th>
+                                        <th>{{ $header['label'] ?? Illuminate\Support\Str::title($header['name']) }}</th>
+                                        <!-- Illuminate\Support\Str::title() -->
                                     @endforeach
                                     <th class="fifteen">Actions</th>
                                 </tr>
@@ -32,7 +33,7 @@
                                 @foreach($submissions as $submission)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $submission->user->name ?? 'n/a' }}</td>
+                                        <td>{{ $submission->user['username']?? 'n/a' }}</td>
                                         @foreach($form_headers as $header)
                                             <td>
                                                 {{ 
@@ -43,11 +44,11 @@
                                             </td>
                                         @endforeach
                                         <td>
-                                            <a href="{{ route('formbuilder::forms.submissions.show', [$form, $submission->id]) }}" class="btn btn-primary btn-sm" title="View submission">
+                                            <a href="{{ route('forms.submissions.show', [$form, $submission->id]) }}" class="btn btn-primary btn-sm" title="View submission">
                                                 <i class="fa fa-eye"></i> View
                                             </a> 
 
-                                            <form action="{{ route('formbuilder::forms.submissions.destroy', [$form, $submission]) }}" method="POST" id="deleteSubmissionForm_{{ $submission->id }}" class="d-inline-block">
+                                            <form action="{{ route('forms.submissions.destroy', [$form, $submission]) }}" method="POST" id="deleteSubmissionForm_{{ $submission->id }}" class="d-inline-block">
                                                 @csrf 
                                                 @method('DELETE')
 

@@ -29,12 +29,13 @@ Route::post('/insert', 'SurveyController@insert');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('surveys/create', 'SurveyController@create');
+
 Route::get('surveys/index', 'SurveyController@index');
 Route::get('surveys/destroy/{id}', 'SurveyController@destroy');
 Route::get('surveys/update/{id}', 'SurveyController@update');
 Route::get('survey/edit/{id}','SurveyController@edit');
 
-
+Route::get('surveys/test', 'SurveyController@test');
 
 
 ////////=========================================================================================
@@ -60,4 +61,36 @@ Route::get('/api/get_questions',function(Request $request){
 //     return $questions;
 // });
 
-Route::get('web_role/get','Auth\RegisterController@create');
+Route::middleware('web')
+	->prefix(config('url_path', '/form-builder'))
+	// ->namespace('App\Http\Controllers')
+	// ->name('formbuilder::')
+	->group(function () {
+		Route::redirect('/', url(config('url_path', '/form-builder').'/forms'));
+
+		/**
+		 * Public form url
+		 */
+		Route::get('/form/{identifier}', 'RenderFormController@render')->name('form.render');
+		Route::post('/form/{identifier}', 'RenderFormController@submit')->name('form.submit');
+		Route::get('/form/{identifier}/feedback', 'RenderFormController@feedback')->name('form.feedback');
+
+		/**
+		 * My submission routes
+		 */
+		Route::resource('/my-submissions', 'MySubmissionController');
+		
+		/**
+		 * Form submission management routes
+		 */
+		Route::name('forms.')
+			->prefix('/forms/{fid}')
+			->group(function () {
+				Route::resource('/submissions', 'SubmissionController');
+			});
+
+		/**
+		 * Form management routes
+		 */
+		Route::resource('/forms', 'FormController');
+	});

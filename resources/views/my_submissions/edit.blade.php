@@ -1,4 +1,4 @@
-@extends('formbuilder::layout')
+@extends('layout')
 
 @section('content')
 <div class="container">
@@ -9,13 +9,13 @@
                     <h5 class="card-title">
                         {{ $pageTitle }}
 
-                        <a href="{{ route('formbuilder::my-submissions.index') }}" class="btn btn-primary float-md-right btn-sm" title="Back To My Submissions">
+                        <a href="{{ route('my-submissions.index') }}" class="btn btn-primary float-md-right btn-sm" title="Back To My Submissions">
                             <i class="fa fa-arrow-left"></i> 
                         </a>
                     </h5>
                 </div>
 
-                <form action="{{ route('formbuilder::my-submissions.update', $submission->id) }}" method="POST" id="submitForm" enctype="multipart/form-data">
+                <form action="{{ route('my-submissions.update', $submission->id) }}" method="POST" id="submitForm" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     
@@ -39,5 +39,5 @@
     <script type="text/javascript">
         window._form_builder_content = {!! json_encode($submission->form->form_builder_json) !!}
     </script>
-    <script src="{{ asset('vendor/formbuilder/js/render-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
+    <script src="{{ asset('js/render-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
 @endpush

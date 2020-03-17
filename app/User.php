@@ -5,10 +5,10 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use jazmy\FormBuilder\Traits\HasFormBuilderTraits;
 class User extends Authenticatable
 {
-    use Notifiable,HasApiTokens;
+    use Notifiable,HasApiTokens,HasFormBuilderTraits;
 
     /**
      * The attributes that are mass assignable.

@@ -1,4 +1,4 @@
-@extends('formbuilder::layout')
+@extends('layout')
 
 @section('content')
 <div class="container">
@@ -11,10 +11,10 @@
 
                         <div class="btn-toolbar float-md-right" role="toolbar">
                             <div class="btn-group" role="group">
-                                <a href="{{ route('formbuilder::forms.index') }}" class="btn btn-sm btn-primary float-md-right">
+                                <a href="{{ route('forms.index') }}" class="btn btn-sm btn-primary float-md-right">
                                     <i class="fa fa-arrow-left"></i> Back To My Forms
                                 </a>
-                                <button class="btn btn-primary btn-sm clipboard" data-clipboard-text="{{ route('formbuilder::form.render', $form->identifier) }}" data-message="Link Copied" data-original="Copy Form Link" title="Copy form URL to clipboard">
+                                <button class="btn btn-primary btn-sm clipboard" data-clipboard-text="{{ route('form.render', $form->identifier) }}" data-message="Link Copied" data-original="Copy Form Link" title="Copy form URL to clipboard">
                                     <i class="fa fa-clipboard"></i> Copy Form Link
                                 </button> 
                             </div>
@@ -22,7 +22,7 @@
                     </h5>
                 </div>
 
-                <form action="{{ route('formbuilder::forms.update', $form) }}" method="POST" id="createFormForm" data-form-method="PUT">
+                <form action="{{ route('forms.update', $form) }}" method="POST" id="createFormForm" data-form-method="PUT">
                     @csrf 
                     @method('PUT')
                     
@@ -119,5 +119,5 @@
         
         window._form_builder_content = {!! json_encode($form->form_builder_json) !!}
     </script>
-    <script src="{{ asset('vendor/formbuilder/js/create-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
+    <script src="{{ asset('js/create-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
 @endpush
