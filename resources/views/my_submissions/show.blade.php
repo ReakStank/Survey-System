@@ -55,11 +55,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <strong>Form: </strong> 
-                        <span class="float-right">{{ $submission->form->name }}</span>
+                        <span class="float-right">{{ $submission->form['name'] }}</span>
                     </li>
                     <li class="list-group-item">
                         <strong>Submitted By: </strong> 
-                        <span class="float-right">{{ $submission->user->name ?? 'Guest' }}</span>
+                        <span class="float-right">{{ $submission->user['name'] ?? 'Guest' }}</span>
                     </li>
                     <li class="list-group-item">
                         <strong>Last Updated On: </strong> 

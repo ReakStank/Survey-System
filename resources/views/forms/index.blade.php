@@ -36,6 +36,7 @@
                                     <th class="twenty-five">Actions</th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
                                 @foreach($forms as $form)
                                     <tr>

@@ -34,7 +34,7 @@
 
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $submission->form->names }}</td>
+                                        <td>{{ $submission->form['name']}}</td>
                                         <td>{{ $submission->updated_at->toDayDateTimeString() }}</td>
                                         <td>{{ $submission->created_at->toDayDateTimeString() }}</td>
                                         <td>
@@ -42,11 +42,7 @@
                                                 <i class="fa fa-eye"></i> View
                                             </a> 
 
-                                            @if($submission->form->allowsEdit())
-                                                <a href="{{ route('my-submissions.edit', [$submission->id]) }}" class="btn btn-primary btn-sm" title="Edit submission">
-                                                    <i class="fa fa-pencil"></i> 
-                                                </a> 
-                                            @endif
+                                        
 <!-- <php exit();?> -->
                                             {{-- <form action="{{ route('my-submissions.destroy', [$submission]) }}" method="POST" id="deleteSubmissionForm_{{ $submission->id }}" class="d-inline-block">
                                                 @csrf 

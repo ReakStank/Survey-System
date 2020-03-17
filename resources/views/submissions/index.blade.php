@@ -23,7 +23,8 @@
                                     <th class="five">#</th>
                                     <th class="fifteen">User Name</th>
                                     @foreach($form_headers as $header)
-                                        <th>{{ $header['label'] ?? title_case($header['name']) }}</th>
+                                        <th>{{ $header['label'] ?? Illuminate\Support\Str::title($header['name']) }}</th>
+                                        <!-- Illuminate\Support\Str::title() -->
                                     @endforeach
                                     <th class="fifteen">Actions</th>
                                 </tr>
@@ -32,7 +33,7 @@
                                 @foreach($submissions as $submission)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $submission->user->name ?? 'n/a' }}</td>
+                                        <td>{{ $submission->user['username']?? 'n/a' }}</td>
                                         @foreach($form_headers as $header)
                                             <td>
                                                 {{ 

@@ -67,7 +67,8 @@ class FormController extends Controller
     public function store(SaveFormRequest $request)
     {
         $user = $request->user();
-
+        // dump($user);
+        // exit();
         $input = $request->merge(['user_id' => $user->id])->except('_token');
 
         DB::beginTransaction();
@@ -75,6 +76,8 @@ class FormController extends Controller
         // generate a random identifier
         $input['identifier'] = $user->id.'-'.Helper::randomString(20);
         $created = Form::create($input);
+        // dump($created);
+        // exit();
 
         try {
             // dispatch the event

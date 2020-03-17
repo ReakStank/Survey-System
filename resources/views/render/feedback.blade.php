@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="{{ route('home') }}" class="btn btn-primary confirm-form">
+                    <a href="{{ url('/home') }}" class="btn btn-primary">
                         <i class="fa fa-home"></i> Return Home
                     </a>
                 </div>

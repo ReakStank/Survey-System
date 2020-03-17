@@ -175,6 +175,7 @@ class Submission extends Model
 
         if ($limit_string) {
             $str = str_limit($str, 20);
+            
         }
 
         // if the type is 'file' then we have to render this as a link
